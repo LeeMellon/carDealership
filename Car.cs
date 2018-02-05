@@ -96,11 +96,19 @@ public class Program
       {
         CarsMatchingSearch.Add(automobile);
       }
+
     }
 
-    foreach(Car automobile in CarsMatchingSearch)
+    if (CarsMatchingSearch.Count == 0)
     {
-      Console.WriteLine(automobile.GetModel());
+      Console.WriteLine("Sorry, there are no cars matching your search. Try again.");
+    }
+    else
+    {
+      foreach(Car automobile in CarsMatchingSearch)
+      {
+        Console.WriteLine(automobile.GetModel());
+      }
     }
   }
 }
