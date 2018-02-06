@@ -6,25 +6,29 @@
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
   </head>
   <body>
-    <h1>Fill in your car's information below:</h1>
-    <form action='/car/create' method="post">
-      <div class='form-group'>
-        <label for='makeModel'>Car Make and Model</label>
-        <input id='makeModel' name='makeModel' class='form-control' type='text'>
+    <div class="container">
+      <div class="well">
+        <h1>Fill in your car's information below:</h1>
+        <form action='/car/create' method="post">
+          <div class='form-group'>
+            <label for='makeModel'>Car Make and Model</label>
+            <input id='makeModel' name='makeModel' class='form-control' type='text'>
+          </div>
+          <div class='form-group'>
+            <label for='description'>Brief Car Description</label>
+            <input id='description' name='description' class='form-control' type='text'>
+          </div>
+          <div class='form-group'>
+            <label for='price'>Your Asking Price</label>
+            <input id='price' name='price' class='form-control' type='number'>
+          </div>
+          <div class='form-group'>
+            <label for='miles'>Car Miles</label>
+            <input id='miles' name='miles' class='form-control' type='number'>
+          </div>
+          <button type='submit' class='btn btn-success'>Add This Car</button>
+        </form>
       </div>
-      <div class='form-group'>
-        <label for='description'>Brief Car Description</label>
-        <input id='description' name='description' class='form-control' type='text'>
-      </div>
-      <div class='form-group'>
-        <label for='price'>Your Asking Price</label>
-        <input id='price' name='price' class='form-control' type='number'>
-      </div>
-      <div class='form-group'>
-        <label for='miles'>Car Miles</label>
-        <input id='miles' name='miles' class='form-control' type='number'>
-      </div>
-      <button type='submit' class='btn btn-success'>Add This Car</button>
-    </form>
+    </div>
   </body>
 </html>
