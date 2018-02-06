@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Car Deals</title>
+  </head>
+  <body>
+    <h1>Epicodus Cars 4 Sale</h1>
+    @foreach (var automobile in Models)
+    {
+      <h4>@automobile.GetModel()</h4>
+      <p>Price: $@automobile.GetPrice()</p>
+      <p>@automobile.GetDescription()</p>
+      <p>Mileage: @automobile.GetMiles()</p>
+    }
+  </body>
+</html>
