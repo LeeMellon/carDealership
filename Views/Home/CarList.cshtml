@@ -11,8 +11,11 @@
     </div>
     <div class="well text-center">
       <h3>Current Cars for Sale:</h3>
-      <ul style="list-style: none;">
-        <li>No current cars!</li>
+      <ul>
+        @foreach(object automobile in Model)
+        {
+          <li>@_makeModel</li>
+        }
       </ul>
       <form action="/car/form" method="post">
         <button type="submit" name="btn btn-primary">Add A Car</button>
