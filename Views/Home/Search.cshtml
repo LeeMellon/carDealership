@@ -11,15 +11,13 @@
     </div>
     <div class="well text-center">
       <h3>Current Cars for Sale:</h3>
-      <ul>
-        @foreach(object automobile in Model)
+      <ul style="list-style: none;">
+        @foreach(var automobile in Model)
         {
-          <li>@_makeModel</li>
+          <li>@automobile.GetModel()</li>
         }
       </ul>
-      <form action="/car/form" method="post">
-        <button type="submit" name="btn btn-primary">Add A Car</button>
-      </form>
+      <p><a href="/">Return to main page</a></p>
     </div>
   </body>
 </html>

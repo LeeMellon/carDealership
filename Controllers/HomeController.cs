@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using CarDealership.Models;
+using System;
 
 namespace CarDealership.Controllers
 {
@@ -9,23 +10,18 @@ namespace CarDealership.Controllers
         [Route("/")]
         public ActionResult Index()
         {
-            // List<Car> Cars = new List<Car>() { porsche, ford, lexus, mercedes };
-            List<Car> allCars = Car.GetAll();
-            if (allCars.Count == 0)
-              {
-                  return View();
-              }
-              else
-              {
-                  return View(allCars);
-              }
+            return View(Car.GetAll());
         }
 
-        [Route("/car/list")]
-        public ActionResult CarList()
+        [Route("/car/search")]
+        public ActionResult Search()
         {
-            List<Car> allCars = Car.GetAll();
-            return View(allCars);
+            string stringMaxPrice = Request.Form["maxPrice"];
+            int intMaxPrice = int.Parse(stringMaxPrice);
+            string stringMaxMiles = Request.Form["maxMiles"];
+            int intMaxMiles = int.Parse(stringMaxMiles);
+
+            return View(Car.SearchResults(intMaxPrice, intMaxMiles));
         }
 
         [Route("/car/form")]
@@ -42,7 +38,7 @@ namespace CarDealership.Controllers
             string stringMiles =  Request.Form["miles"];
             int intMiles = int.Parse(stringMiles);
             Car newCar = new Car (Request.Form["makeModel"], Request.Form["description"], intPrice, intMiles);
-            newCar.Save();
+            newCar.CarSave();
             return View(newCar);
         }
     }

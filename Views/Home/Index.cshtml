@@ -12,11 +12,28 @@
     <div class="well text-center">
       <h3>Current Cars for Sale:</h3>
       <ul style="list-style: none;">
-        <li>No current cars!</li>
+        @foreach(var automobile in Model)
+        {
+          <li>@automobile.GetModel()</li>
+        }
       </ul>
       <form action="/car/form" method="post">
         <button type="submit" name="btn btn-primary">Add A Car</button>
       </form>
+      <div class="well text-center">
+        <h3>Look for a Car!</h3>
+        <form action='/car/search' method="post">
+          <div class='form-group'>
+            <label for='maxPrice'>Maximum Price</label>
+            <input id='maxPrice' name='maxPrice' class='form-control' type='number'>
+          </div>
+          <div class='form-group'>
+            <label for='maxMiles'>Maximum Miles</label>
+            <input id='maxMiles' name='maxMiles' class='form-control' type='number'>
+          </div>
+          <button type='submit' class='btn btn-success'>Search</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
